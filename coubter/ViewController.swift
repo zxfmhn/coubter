@@ -12,13 +12,7 @@ class ViewController: UIViewController{
     var operatorFlag = 0
     var temp: Double = 0
     @IBOutlet weak var display: UITextField!
-    var userIsInTheMiddleOfTypingANumber:Bool = false
-    var firstOperand: Double = 0.0
-    var secondOperand: Double = 0.0
-    var decimalPointFlag: Bool = false
-    var isSecond: Bool = false
-    var OperatorFlag: String = ""
-    
+    var hasNumber:Bool = false
     @IBAction func buttonZero(_ sender: Any) {
         display.text = display.text! + "0"
     }
@@ -94,7 +88,7 @@ class ViewController: UIViewController{
         }
     }
     @IBAction func buttonReset(_ sender: Any) {
-            display.text = "0"
+            display.text = " "
     }
     
     override func viewDidLoad()
