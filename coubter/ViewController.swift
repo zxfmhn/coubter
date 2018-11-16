@@ -9,11 +9,33 @@
 import UIKit
 
 class ViewController: UIViewController{
-    var operatorFlag = 0
+    var operatorFlag: Double = 0
     var temp: Double = 0
     @IBOutlet weak var display: UITextField!
-    var hasNumber:Bool = false
-    @IBAction func buttonZero(_ sender: Any) {
+    
+    @IBAction func display(_ sender: Any) {
+        if display.text == "="
+        {
+            display.text=""
+        }
+        if operatorFlag  == 1
+        {
+            display.text=""
+        }
+        if operatorFlag  == 2
+        {
+            display.text=""
+        }
+        if operatorFlag  == 3
+        {
+            display.text=""
+        }
+        if operatorFlag  == 4
+        {
+            display.text=""
+        }
+    }
+    @IBAction func buttonZero(_ sender: Any){
         display.text = display.text! + "0"
     }
     @IBAction func buttonOne(_ sender: Any) {
@@ -67,7 +89,7 @@ class ViewController: UIViewController{
         display.text = ""
     }
     @IBAction func buttonResult(_ sender: Any) {
-        if operatorFlag == 1 {
+        if operatorFlag  == 1 {
         temp = temp + Double(display.text!)!
         display.text = "\(temp)"
     }
@@ -88,7 +110,7 @@ class ViewController: UIViewController{
         }
     }
     @IBAction func buttonReset(_ sender: Any) {
-            display.text = " "
+            display.text = "0 "
     }
     
     override func viewDidLoad()
