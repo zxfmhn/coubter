@@ -131,7 +131,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                 <state key="normal" title="."/>
                                 <connections>
-                                    <action selector="bottonDian:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ESJ-V1-y6H"/>
+                                    <action selector="bottonDian:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tju-hn-kcD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw6-g6-m0B">

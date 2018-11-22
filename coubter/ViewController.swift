@@ -30,79 +30,80 @@ class ViewController: UIViewController{
     @IBAction func buttonZero(_ sender: Any){
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "0"
     }
     @IBAction func buttonOne(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "1"
     }
     @IBAction func buttonTwo(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "2"
     }
     @IBAction func buttonThree(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "3"
     }
     @IBAction func buttonFour(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "4"
     }
     @IBAction func buttonFive(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "5"
     }
     @IBAction func buttonSix(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "6"
     }
     @IBAction func buttonSeven(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "7"
     }
     @IBAction func buttonEight(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "8"
     }
     @IBAction func buttonNine(_ sender: Any) {
         if(display.text == "0" )
         {
-            display.text = " "
+            display.text = ""
         }
         display.text = display.text! + "9"
     }
     @IBAction func bottonDian(_ sender: Any) {
-           display.text = display.text! + "."
+        display.text = display.text! + "."
+        
     }
     @IBAction func buttonAdd(_ sender: Any) {
         operatorFlag = 1
-        temp = Double(display.text!)!
+        temp = Double (display.text!)!
         display.text = ""
     }
     @IBAction func buttonSlow(_ sender: Any) {
@@ -117,7 +118,7 @@ class ViewController: UIViewController{
     }
     @IBAction func buttonProduct(_ sender: Any) {
         operatorFlag = 4
-        temp = Double(display.text!)!
+        temp = Double (display.text!)!
         display.text = ""
     }
     @IBAction func buttonResult(_ sender: Any) {
