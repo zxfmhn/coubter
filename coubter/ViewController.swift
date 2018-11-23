@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController{
     var operatorFlag: Double = 0
+    var temp1: Double = 0
     var temp: Double = 0
     var displaytext: String = ""
+    
     @IBOutlet weak var display: UITextField!
     func RemovebuttonZero(textNumber: Double)->String{
         var str = "(\textnumber)"
@@ -102,43 +104,54 @@ class ViewController: UIViewController{
         
     }
     @IBAction func buttonAdd(_ sender: Any) {
+        
         operatorFlag = 1
-        temp = Double (display.text!)!
+        temp1 = Double (display.text!)!
         display.text = ""
+        if display.text!.count == 3
+        {
+            
+        }
+
+       
     }
     @IBAction func buttonSlow(_ sender: Any) {
         operatorFlag = 2
-        temp = Double(display.text!)!
+        temp1 = Double(display.text!)!
         display.text = ""
+      
     }
     @IBAction func buttonChu(_ sender: Any) {
         operatorFlag = 3
-        temp = Double(display.text!)!
+        temp1 = Double(display.text!)!
         display.text = ""
+       
     }
     @IBAction func buttonProduct(_ sender: Any) {
         operatorFlag = 4
-        temp = Double (display.text!)!
+        temp1 = Double (display.text!)!
         display.text = ""
+
     }
     @IBAction func buttonResult(_ sender: Any) {
         if operatorFlag  == 1 {
-        temp = temp + Double(display.text!)!
-        display.text = "\(temp)"
+        temp1 = temp1 + Double(display.text!)!
+        display.text = "\(temp1)"
+            
     }
         if operatorFlag  == 2 {
-            temp = temp - Double(display.text!)!
-            display.text = "\(temp)"
+            temp1 = temp1 - Double(display.text!)!
+            display.text = "\(temp1)"
         
     }
         if operatorFlag  == 3 {
-            temp = temp / Double(display.text!)!
-            display.text = "\(temp)"
+            temp1 = temp1 / Double(display.text!)!
+            display.text = "\(temp1)"
             
         }
         if operatorFlag  == 4 {
-            temp = temp * Double(display.text!)!
-            display.text = "\(temp)"
+            temp1 = temp1 * Double(display.text!)!
+            display.text = "\(temp1)"
             
         }
     }
