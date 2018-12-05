@@ -9,10 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController{
-    var operatorFlag: Double = 0
-    var temp: Double = 0
-    var value: Double = 0
+   // var operatorFlag: Double = 0
+    //var temp: Double = 0
+    //var value: Double = 0
+    var firstOperand: Double = 0.0
+    var secondOperand: Double = 0.0
+    var decimalPointFlag: Bool = false
     var displaytext: String = ""
+    var isSecond: Bool = false
+   
     
     @IBOutlet weak var display: UITextField!
     func RemovebuttonZero(textNumber: Double)->String{
@@ -29,280 +34,124 @@ class ViewController: UIViewController{
         return str
     }
     
-    @IBAction func buttonZero(_ sender: Any){
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "0"
-    }
-    @IBAction func buttonOne(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "1"
-    }
-    @IBAction func buttonTwo(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "2"
-    }
-    @IBAction func buttonThree(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "3"
-    }
-    @IBAction func buttonFour(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "4"
-    }
-    @IBAction func buttonFive(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "5"
-    }
-    @IBAction func buttonSix(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "6"
-    }
-    @IBAction func buttonSeven(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "7"
-    }
-    @IBAction func buttonEight(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "8"
-    }
-    @IBAction func buttonNine(_ sender: Any) {
-        if(display.text == "0" )
-        {
-            display.text = ""
-        }
-        if(display.text == "+" )
-        {
-            display.text = ""
-        }
-        if(display.text == "-" )
-        {
-            display.text = ""
-        }
-        if(display.text == "*" )
-        {
-            display.text = ""
-        }
-        if(display.text == "/" )
-        {
-            display.text = ""
-        }
-        display.text = display.text! + "9"
-    }
-    @IBAction func bottonDian(_ sender: Any) {
-            display.text = display.text! + ""
+    @IBAction func decimalPointTap() {
         
+        if !decimalPointFlag {
+            display.text = display.text! + "."
+            if isSecond {
+                secondOperand = (display.text! as NSString).doubleValue
+            }else {
+                firstOperand = (display.text! as NSString).doubleValue
+            }
+            
+            decimalPointFlag = !decimalPointFlag
+        }
     }
-    @IBAction func buttonAdd(_ sender: Any) {
+    @IBAction func buttonTap(_ sender: UIButton) {
+        //lableResult 中默认是0,如果开始输入数字,则先清除0
+        if display.text == "0" || (isSecond && secondOperand == 0.0) {
+            
+            display.text = ""
+        }
+        //将用户录入的数添加到lableResult中
+        display.text = display.text! + sender.titleLabel!.text!
         
-        operatorFlag = 1
-        temp = Double (display.text!)!
-        display.text = "+"
-       
+        if isSecond {
+            
+            //            secondOperand = (lableResult.text! as NSString).doubleValue
+            secondOperand = NSString(string: display.text!).doubleValue
+        }else {
+            //将lableResult中的字符串转化为双精度数
+            //            firstOperand = (lableResult.text! as NSString).doubleValue
+            firstOperand = NSString(string: display.text!).doubleValue
+        }
+        print(firstOperand)
     }
-    @IBAction func buttonSlow(_ sender: Any) {
-        operatorFlag = 2
-        temp = Double(display.text!)!
-        display.text = "-"
-      
-    }
-    @IBAction func buttonChu(_ sender: Any) {
-        operatorFlag = 3
-        temp = Double(display.text!)!
-        display.text = "/"
-       
-    }
-    @IBAction func buttonProduct(_ sender: Any) {
-        operatorFlag = 4
-        temp = Double (display.text!)!
-        display.text = "*"
+    
 
-    }
-    @IBAction func buttonResult(_ sender: Any) {
-        if operatorFlag  == 1 {
-        temp = temp + Double(display.text!)!
-        value = temp
-        display.text = "\(temp)"
+    @IBAction func Except(_ sender: UIButton) {
+        if display.text != "0" {
+            isSecond = true
+            display.text = "/"
             
     }
-        if operatorFlag  == 2 {
-            temp = temp - Double(display.text!)!
-            value = temp
-            display.text = "\(temp)"
+    }
+    @IBAction func Minus(_ sender: UIButton) {
+        if display.text != "0" {
+            isSecond = true
+            display.text = "-"
+            
+        }
+    }
+    @IBAction func Title(_ sender: UIButton) {
+        if display.text != "0" {
+            isSecond = true
+            display.text = "*"
+            
+        }
+    }
+    @IBAction func ADD(_ sender: UIButton) {
+        if display.text != "0" {
+            isSecond = true
+            display.text = "+"
+            
+        }
+    }
+    
+    
+    @IBAction func resultTap(_ sender: Any) {
+        //确保第二操作数有值
+        if isSecond {
+            //除数不能为0
+            if displaytext == "/" && secondOperand == 0 {
+                print("Error: 除数不能为0")
+                return
+            }
+            
+            var result: Double = 0.0
+            switch displaytext {
+            case "+":
+                result = firstOperand + secondOperand
+            case "-":
+                result = firstOperand - secondOperand
+            case  "*":
+                result = firstOperand * secondOperand
+            case  "/":
+                result = firstOperand / secondOperand
+            default :
+                result = 0.0
+            }
+            
+            display.text = result.description
+            print("第一操作: \(firstOperand)")
+            print("操作符: \(displaytext)")
+            print("第二操作: \(secondOperand)")
+            print("结果: \(result)")
+            
+        }
+    }
+    @IBAction func clear(_ sender: Any) {
+        
+        //lable对象显示0
+        display.text = "0"
+        
+        //第一操作数清零
+        firstOperand = 0.0
+        
+        //第二操作数清零
+        secondOperand = 0.0
+        
+        //小数点标记设置为假
+        decimalPointFlag = false
+        
+        //第二操作数标记设置为假
+        isSecond = false
+        
+        //操作清空
+        displaytext = ""
         
     }
-        if operatorFlag  == 3 {
-            temp = temp / Double(display.text!)!
-            value = temp
-            display.text = "\(temp)"
-            
-        }
-        if operatorFlag  == 4 {
-            temp = temp * Double(display.text!)!
-            value = temp
-            display.text = "\(temp)"
-            
-        }
-    }
-    @IBAction func buttonReset(_ sender: Any) {
-            display.text = "0"
-    }
-    
-    
+
     @IBAction func DeleteNumber(_ sender: Any) {
         if(display.text!.count == 1)
         {
@@ -313,8 +162,8 @@ class ViewController: UIViewController{
             display.text!.remove(at: display.text!.index(before:display.text!.endIndex))
             displaytext = display.text!
         }
-    }
-    
+}
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
